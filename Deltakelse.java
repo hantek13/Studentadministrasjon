@@ -22,6 +22,7 @@ public class Deltakelse {
         aktiv = true;
     }
     
+    //test
     public boolean getAktiv() {
         return aktiv;
     }
