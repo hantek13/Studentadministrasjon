@@ -7,7 +7,7 @@ package prosjekt;
 /**
  *
  * Skrevet av: Hanna
- * Sist endret: 
+ * Sist endret: 06.05.2013
  * Endret av: 
  */
 public class Deltakelse {
