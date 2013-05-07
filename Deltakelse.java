@@ -1,4 +1,3 @@
-
 /**
  *Fil: Deltakelse.java - klasse for deltakelse
  * Skrevet av: Hanna
@@ -23,24 +22,24 @@ public class Deltakelse {
     
     /**
      * Henter aktiv
-	 * @return aktiv
-	 */
+     * @return aktiv
+     */
     public boolean getAktiv() {
         return aktiv;
     }
     
     /**
      * Setter aktiv
-	 * @param aktiv
-	 */
+     * @param aktiv
+     */
     public void setAktiv(boolean aktiv) {
         this.aktiv = aktiv;
     }
     
     /**
      * Setter fag som er fullført
-	 * @param fagkode og dato
-	 */
+     * @param fagkode og dato
+     */
     public String settFagSomFullfoert(String fagkode, String dato) {
         Fag fag = naavaerende.finn(fagkode);
         if (fag != null) {
@@ -59,7 +58,7 @@ public class Deltakelse {
      /**
      * Setter arbeidskrav bestått
      * @param fagkode
-	 */
+     */
     public String settArbeidskravBestaatt(String fagkode) { 
         Fag fag = naavaerende.finn(fagkode);
         if (fag != null) {
