@@ -1,36 +1,50 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+
+/**
+ *Fil: Deltakelse.java - Klasse for deltakelse 
+ * Skrevet av: Hanna
+ * Sist endret: 07.05.2013
+ * Endret av: 
  */
+
 package prosjekt;
 
 /**
- *
- * Skrevet av: Hanna
- * Sist endret: 06.05.2013
- * Endret av: 
+ * Klasse for deltakelse
  */
 public class Deltakelse {
-    private boolean aktiv;              //Registrer om studenten er aktiv i studiet eller har sluttet
+    private boolean aktiv; //Registrer om studenten er aktiv i studiet eller har sluttet
     Fagregister naavaerende, fullfoerte;
     Karakterregister karakterer;
     
+    //tom konstruktør
     public Deltakelse() {
+        //oppretter objekter
         karakterer = new Karakterregister();
         naavaerende = new Fagregister();
         fullfoerte = new Fagregister();
         aktiv = true;
     }
     
-    //test2
+    /**
+     * Henter aktiv
+	 * @return aktiv
+	 */
     public boolean getAktiv() {
         return aktiv;
     }
     
+    /**
+     * Setter aktiv
+	 * @param aktiv
+	 */
     public void setAktiv(boolean aktiv) {
         this.aktiv = aktiv;
     }
     
+    /**
+     * registrerer fag som er fullførte
+	 * @param fagkode og dato
+	 */
     public String settFagSomFullfoert(String fagkode, String dato) {
         Fag fag = naavaerende.finn(fagkode);
         if (fag != null) {
@@ -46,6 +60,10 @@ public class Deltakelse {
         return "Faget ble ikke registrert som fullført. Prøv på nytt";
     }
     
+    /**
+     * registerer om arbeidskravene er bestått for hvert av studentens fag 
+	 * @param fagkode
+	 */
     public String settArbeidskravBestaatt(String fagkode) { 
         Fag fag = naavaerende.finn(fagkode);
         if (fag != null) {
@@ -55,6 +73,10 @@ public class Deltakelse {
         return "Arbeidskravene ble ikke registrert som bestått. Prøv på nytt.";
     }
     
+     /**
+     * registerer oppmelding til eksamen
+     * @param fagkode og eksamen
+	 */
     public String meldOppTilEksamen(String fagkode, Eksamen eksamen) {
         if (naavaerende.finn(fagkode) != null && eksamen != null) { 
             if (naavaerende.eksamener.antallEksamener() < 3 && naavaerende.finn(fagkode).getTillatelseTilAaTaEksamen()) {
@@ -69,6 +91,10 @@ public class Deltakelse {
         return "Studenten ble ikke meldt opp til eksamen. Det kan være at arbeidskravene ikke er bestått.";
     }
     
+    /**
+     * registerer avmelding fra eksamen
+     * @param fagkode og dato
+     */
     public String meldAvEksamen(String fagkode, String dato) {
         Fag fag = naavaerende.finn(fagkode);
         if (fag != null) {
@@ -78,6 +104,10 @@ public class Deltakelse {
         return "Studenten ble ikke avmeldt eksamen. Prøv på nytt.";
     }
     
+    /**
+     * registerer eksamener som er avlagt i et fag
+     * @param fagkode og dato
+     */
     public String avlagteEksamener(String fagkode, String dato) {
         Fag fag = naavaerende.finn(fagkode); 
         if (fag != null) {
@@ -91,6 +121,10 @@ public class Deltakelse {
         return "Finner ikke faget.";
     }
     
+    /**
+     * registerer eksamens karakter
+     * @param fagkode, dato og karakter
+     */
     public String registrerKarakter(String fagkode, String dato, String karakter) {
         Fag fag = naavaerende.finn(fagkode); 
         if (fag != null) {
@@ -111,4 +145,4 @@ public class Deltakelse {
     
     
     
-}
+}//End of class Deltaker
